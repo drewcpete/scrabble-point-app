@@ -17,15 +17,17 @@ namespace Scrabble.TestTools
         public void  Scrabble_WordToCharArray_CharArray()
         {
             string newWord = "Octothorpe";
-            char[] correctArray = ["O", "c", "t", "o", "t", "h", "o", "r", "p", "e"];
+            char[] correctArray = {'O', 'c', 't', 'o', 't', 'h', 'o', 
+            'r', 'p', 'e'};
             char[] newArray = newWord.ToCharArray();
-            Assert.AreEqual(correctArray, newArray)
+            CollectionAssert.AreEqual(correctArray, newArray);
         }
         [TestMethod]
         public void Scrabble_CheckWordFor1PointChars_1pointChar()
         {
             string newWord = "little";
-            
+            int newValue = Game.CheckCharPoints(newWord);
+            Assert.AreEqual(6, newValue);
         }
     }
 }
